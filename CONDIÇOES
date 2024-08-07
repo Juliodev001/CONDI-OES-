@@ -1,0 +1,45 @@
+REPORT ZDS_TOP__VENDAS_AUL006.
+
+SELECTION-SCREEN BEGIN OF BLOCK b1.
+PARAMETERS p_1bim(12) TYPE p DECIMALS 2.
+PARAMETERS p_2bim(12) TYPE P DECIMALS 2.
+PARAMETERS p_3bim(12) TYPE P DECIMALS 2.
+PARAMETERS p_4bim(12) TYPE P DECIMALS 2.
+SELECTION-SCREEN END OF BLOCK b1.
+
+START-OF-SELECTION.
+  DATA ld_media(12) TYPE p DECIMALS 2.
+
+  ld_media = ( p_1bim + p_2bim + p_3bim  + p_4bim ) / 4.
+
+   " IF ld_media < 60. " SE
+
+ " WRITE : 'Sua media anual foi de ' , ld_media , ', você foi reprovado!'.
+ " ELSE. " SENÃO
+   "WRITE : 'Sua media anual foi de ' , ld_media , ', você foi aprovado  parabens !'.
+  "ENDIF.
+
+
+
+" COMBINAÇOES de AND e OR
+
+
+" VERDADEIRO AND VERDADEIRO = VERDADEIRO
+" VERDADEIRO AND FALSO = FALSO
+" FALSO AND FALSO =  FALSO
+
+ " VERDADEIRO OR VERDADEIRO = VERDADEIRO
+" VERDADEIRO OR FALSO = VERDADEIRO
+" FALSO OR FALSO =  FALSO
+
+
+
+
+  IF ld_media >= 0 AND ld_media <= 50.
+
+  WRITE : ' Sua nota foi muito baixa, voce foi reprovado!'.
+  ELSEIF ld_media >= 51 AND ld_media <= 59.
+   WRITE : 'Voce quase passou, estude um pouco mais'.
+   ELSEIF ld_media >= 60 AND ld_media <= 100.
+     WRITE: ' PARABENS, VOCE PASSOU'.
+  ENDIF.
